@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/student', function () {
-    return view('student', ['tmp' => ['id' => 0]]);
-});
+Route::post('/student', [StudentController::class, 'create']);
+
+Route::get('/student', [StudentController::class, 'index']);
