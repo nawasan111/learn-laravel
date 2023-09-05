@@ -5,22 +5,8 @@
     <title>Index Page</title>
     
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
-    <style>
-        table {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-            border: 1px solid black;
-        }
-        th,tr, td {
-            padding: 10px;
-        }
-        @media only screen and (max-width: 600px) {
-            .table-container {
-            overflow-x: scroll;
-        }
-}
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
   </head>
   <body>
       <h1><center>HOME: VIEW ALL STUDENTS</center></h1>            
@@ -60,7 +46,7 @@
         <td>
           {{-- <form action="{{action('StudentController@destroy', $tmp['id'])}}" method="post"> --}}
             <input name="_method" type="hidden" value="EDIT">
-            <button class="btn btn-danger" type="submit">edit</button>
+            <button class="btn btn-warning" type="submit">edit</button>
           {{-- </form> --}}
         </td>
         <td>
@@ -77,31 +63,32 @@
   </table>
      </div>
 
-     <div style="text-align: center;margin: 10px;">
+     <div>
         <h3>add student</h3>
-        <form action="/student" method="POST">
+        <form class="form-control my-3" action="/student" method="POST">
             {{ csrf_field() }}
             <div>
-                <label for="">fullname</label>
-                <input name="fullname" type="text">
+                <label class="form-label" for="">fullname</label>
+                <input class="form-control" name="fullname" type="text">
             </div>
             <div>
-                <label for="">program</label>
-                <input type="text" name="program" id="">
+                <label class="form-label" for="">program</label>
+                <input class="form-control" type="text" name="program" id="">
             </div>
             <div>
-                <label for="">income</label>
-                <input name="income" type="text">
+                <label class="form-label" for="">income</label>
+                <input class="form-control" name="income" type="text">
             </div>
             <div>
-                <label for="gpa">gpa</label>
-                <input type="text" name="gpa" id="">
+                <label class="form-label" for="gpa">gpa</label>
+                <input class="form-control" type="text" name="gpa" id="">
             </div>
-            <div>
-                <button>submit</button>
+            <div class="m-3">
+                <button class="btn btn-outline-primary">submit</button>
             </div>
         </form>
      </div>
   </div>
+  <br><br>
   </body>
 </html>
