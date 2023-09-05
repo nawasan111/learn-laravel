@@ -21,8 +21,7 @@
         <p>{{ \Session::get('success') }}</p>
       </div><br />
      @endif
-     <div id="table" class="table-container">
-
+     <div id="table" style="overflow: hidden" class="table-container rounded-3 border shadow-sm">
     <table class="table table-striped">
     <thead>
       <tr>
@@ -68,7 +67,7 @@
 
      <div id="create-student">
         <h3>add student</h3>
-        <form class="form-control my-3" action="/student" method="POST">
+        <form class="form-control my-3 shadow-sm" action="/student" method="POST">
             {{ csrf_field() }}
             <div>
                 <label class="form-label" for="">fullname</label>
