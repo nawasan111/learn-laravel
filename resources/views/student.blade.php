@@ -51,7 +51,7 @@
             <button onclick="editStudent({{$tmp['id']}}, '{{$tmp['fullname']}}', '{{$tmp['program']}}', '{{$tmp['income']}}', '{{$tmp['gpa']}}' )" class="btn btn-warning" >edit</button>
         </td>
         <td>
-          <form action="/student?id={{ $tmp['id'] }}" method="post">
+          <form action="/student?id={{ $tmp['id'] }}" onsubmit="return confirm('Delete?')" method="post">
             <input name="_method" type="hidden" value="DELETE">
             <button class="btn btn-danger" type="submit">Delete</button>
             @method('delete')
@@ -93,7 +93,7 @@
      </div>
 
       <div id="edit-student">
-        <h3 id="edit-title">edit student</h3>
+        <h3 id="edit-label">edit student</h3>
         <form id="edit-form" class="form-control my-3" action="/student" method="POST">
           @method('put')
             {{ csrf_field() }}

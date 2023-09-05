@@ -32,12 +32,14 @@ function ChCom(value) {
 function editStudent(id, fullname, program, income, gpa) {
     ChCom('edit-student');
 
+    const label = document.getElementById("edit-label");
     const student_id = document.getElementById("edit-student-id");
     const fullname_value = document.getElementById("edit-fullname-value");
     const program_value = document.getElementById("edit-program-value");
     const income_value = document.getElementById("edit-income-value");
     const gpa_value = document.getElementById("edit-gpa-value");
 
+    label.innerText = `แก้ไขข้อมูลของ ${fullname}`
     student_id.value = id;
     fullname_value.value = fullname;
     program_value.value = program;
