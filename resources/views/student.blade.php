@@ -48,10 +48,7 @@
          <td>{{ $tmp['gpa']}}</td>
 
         <td>
-          {{-- <form action="{{action('StudentController@destroy', $tmp['id'])}}" method="post"> --}}
-            <input name="_method" type="hidden" value="EDIT">
-            <button class="btn btn-warning" type="submit">edit</button>
-          {{-- </form> --}}
+            <button onclick="editStudent({{$tmp['id']}}, '{{$tmp['fullname']}}', '{{$tmp['program']}}', '{{$tmp['income']}}', '{{$tmp['gpa']}}' )" class="btn btn-warning" >edit</button>
         </td>
         <td>
           <form action="/student?id={{ $tmp['id'] }}" method="post">
@@ -94,6 +91,36 @@
             </div>
         </form>
      </div>
+
+      <div id="edit-student">
+        <h3 id="edit-title">edit student</h3>
+        <form id="edit-form" class="form-control my-3" action="/student" method="POST">
+          @method('put')
+            {{ csrf_field() }}
+            <input id="edit-student-id" type="hidden" name="student-id">
+            <div>
+                <label class="form-label" for="">fullname</label>
+                <input id="edit-fullname-value" class="form-control" name="fullname" type="text">
+            </div>
+            <div>
+                <label class="form-label" for="">program</label>
+                <input id="edit-program-value" class="form-control" type="text" name="program" id="">
+            </div>
+            <div>
+                <label class="form-label" for="">income</label>
+                <input id="edit-income-value" class="form-control" name="income" type="text">
+            </div>
+            <div>
+                <label class="form-label" for="gpa">gpa</label>
+                <input id="edit-gpa-value" class="form-control" type="text" name="gpa" id="">
+            </div>
+            <div class="m-3">
+                <button class="btn btn-outline-primary">submit</button>
+            </div>
+        </form>
+     </div>
+ 
+
   </div>
   <br><br>
   <script src="/script.js"></script>
