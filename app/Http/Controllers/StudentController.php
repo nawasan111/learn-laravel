@@ -20,7 +20,7 @@ class StudentController extends Controller
         $student->fullname = $_POST['fullname'] ?? "emty";
         $student->program = $_POST['program'] ?? "emty";
         $student->income = $_POST['program'] ?? "emty";
-        $student->gpa = (int)($_POST['gpa'] ?? 0);
+        $student->gpa = (double)($_POST['gpa'] ?? 0);
         $student->save();
         return redirect('/student');
     }
@@ -31,7 +31,7 @@ class StudentController extends Controller
             $student->fullname = $_POST['fullname'] ?? 'emty';
             $student->program = $_POST['program'] ?? 'emty';
             $student->income = $_POST['income'] ?? 'emty';
-            $student->gpa = $_POST['gpa'] ?? 'emty';
+            $student->gpa =  (double) $_POST['gpa'] ?? 0;
             $student->save();
             return redirect('/student');
         } catch (Exception $err) {
@@ -45,7 +45,7 @@ class StudentController extends Controller
             $student = Student::find($_GET['id']);
             if (!$student) throw new Exception();
             $student->delete();
-            return redirect('/student');
+            return redirect('/student')->with('success', 'delete success!');;
         } catch (Exception $err) {
             return redirect('/student');
         }

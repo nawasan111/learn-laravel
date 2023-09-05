@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Index Page</title>
+    <title>Student</title>
     
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
@@ -10,16 +10,16 @@
   </head>
   <body>
       <h1><center>HOME: VIEW ALL STUDENTS</center></h1>            
-    <div class="container">
+   <div class="container">
       <p>
         <button class="btn btn-primary" id="switch-btn" onclick="ChCom('show')">show</button>
         <button class="btn btn-primary" id="switch-btn" onclick="ChCom('create-student')">create student</button>
       </p>
     <br />
     @if (\Session::has('success'))
-      <div class="alert alert-success">
-        <p>{{ \Session::get('success') }}</p>
-      </div><br />
+      <div class="alert alert-success text-center">
+        {{ \Session::get('success') }}
+      </div>
      @endif
      <div id="table" style="overflow: hidden" class="table-container rounded-3 border shadow-sm">
     <table class="table table-striped">
@@ -71,19 +71,19 @@
             {{ csrf_field() }}
             <div>
                 <label class="form-label" for="">fullname</label>
-                <input class="form-control" name="fullname" type="text">
+                <input class="form-control" name="fullname" type="text" required>
             </div>
             <div>
                 <label class="form-label" for="">program</label>
-                <input class="form-control" type="text" name="program" id="">
+                <input class="form-control" type="text" name="program" id="" required>
             </div>
             <div>
                 <label class="form-label" for="">income</label>
-                <input class="form-control" name="income" type="text">
+                <input class="form-control" name="income" type="text" required>
             </div>
             <div>
                 <label class="form-label" for="gpa">gpa</label>
-                <input class="form-control" type="text" name="gpa" id="">
+                <input class="form-control" type="text" name="gpa" id="" required>
             </div>
             <div class="m-3">
                 <button class="btn btn-outline-primary">submit</button>
@@ -99,19 +99,19 @@
             <input id="edit-student-id" type="hidden" name="student-id">
             <div>
                 <label class="form-label" for="">fullname</label>
-                <input id="edit-fullname-value" class="form-control" name="fullname" type="text">
+                <input id="edit-fullname-value" class="form-control" name="fullname" type="text" required>
             </div>
             <div>
                 <label class="form-label" for="">program</label>
-                <input id="edit-program-value" class="form-control" type="text" name="program" id="">
+                <input id="edit-program-value" class="form-control" type="text" name="program" id="" required>
             </div>
             <div>
                 <label class="form-label" for="">income</label>
-                <input id="edit-income-value" class="form-control" name="income" type="text">
+                <input id="edit-income-value" class="form-control" name="income" type="text" required>
             </div>
             <div>
                 <label class="form-label" for="gpa">gpa</label>
-                <input id="edit-gpa-value" class="form-control" type="text" name="gpa" id="">
+                <input id="edit-gpa-value" class="form-control" type="text" name="gpa" id="" required>
             </div>
             <div class="m-3">
                 <button class="btn btn-outline-primary">submit</button>
