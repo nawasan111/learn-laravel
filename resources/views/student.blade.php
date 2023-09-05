@@ -11,13 +11,17 @@
   <body>
       <h1><center>HOME: VIEW ALL STUDENTS</center></h1>            
     <div class="container">
+      <p>
+        <button class="btn btn-primary" id="switch-btn" onclick="ChCom('show')">show</button>
+        <button class="btn btn-primary" id="switch-btn" onclick="ChCom('create-student')">create student</button>
+      </p>
     <br />
     @if (\Session::has('success'))
       <div class="alert alert-success">
         <p>{{ \Session::get('success') }}</p>
       </div><br />
      @endif
-     <div class="table-container">
+     <div id="table" class="table-container">
 
     <table class="table table-striped">
     <thead>
@@ -50,10 +54,12 @@
           {{-- </form> --}}
         </td>
         <td>
-          {{-- <form action="{{action('StudentController@destroy', $tmp['id'])}}" method="post"> --}}
+          <form action="/student?id={{ $tmp['id'] }}" method="post">
             <input name="_method" type="hidden" value="DELETE">
             <button class="btn btn-danger" type="submit">Delete</button>
-          {{-- </form> --}}
+            @method('delete')
+            @csrf
+          </form>
         </td>
 
       </tr>
@@ -63,7 +69,7 @@
   </table>
      </div>
 
-     <div>
+     <div id="create-student">
         <h3>add student</h3>
         <form class="form-control my-3" action="/student" method="POST">
             {{ csrf_field() }}
@@ -90,5 +96,6 @@
      </div>
   </div>
   <br><br>
+  <script src="/script.js"></script>
   </body>
 </html>

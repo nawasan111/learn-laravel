@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
+use Exception;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -22,5 +23,17 @@ class StudentController extends Controller
         $student->gpa = (int)($_POST['gpa'] ?? 0);
         $student->save();
         return redirect('/student');
+    }
+    public function delete()
+    {
+        try {
+            if (!isset($_GET['id'])) throw new Exception();
+            $student = Student::find($_GET['id']);
+            if (!$student) throw new Exception();
+            $student->delete();            
+            return redirect('/student');
+        } catch (Exception $err) {
+            return redirect('/student');
+        }
     }
 }

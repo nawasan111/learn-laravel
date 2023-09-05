@@ -21,3 +21,5 @@ Route::get('/', function () {
 Route::post('/student', [StudentController::class, 'create']);
 
 Route::get('/student', [StudentController::class, 'index']);
+
+Route::delete('/student', [StudentController::class, 'delete']);
