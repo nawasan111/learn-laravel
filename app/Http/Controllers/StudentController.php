@@ -35,7 +35,6 @@ class StudentController extends Controller
             $student->save();
             return redirect('/student');
         } catch (Exception $err) {
-            return $err->getMessage();
             return redirect('/student');
         }
     }
