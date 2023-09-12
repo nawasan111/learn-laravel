@@ -24,14 +24,14 @@ class StudentController extends Controller
         $student->save();
         return redirect('/student');
     }
-    public function edit() {
+    public function edit(Request $request) {
         try {
             if(!isset($_POST['student-id'])) throw new Exception('id is emty or undifind');
             $student = Student::find($_POST['student-id']);
-            $student->fullname = $_POST['fullname'] ?? 'emty';
-            $student->program = $_POST['program'] ?? 'emty';
-            $student->income = $_POST['income'] ?? 'emty';
-            $student->gpa =  (double) $_POST['gpa'] ?? 0;
+            $student->fullname =$request->fullname ?? 'emty';
+            $student->program = $request->program ?? 'emty';
+            $student->income = $request->income ?? 'emty';
+            $student->gpa =  (double) $request->gpa ?? 0;
             $student->save();
             return redirect('/student');
         } catch (Exception $err) {
