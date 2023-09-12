@@ -14,13 +14,13 @@ class StudentController extends Controller
         $students = Student::all();
         return view('student', compact('students'));
     }
-    public function create()
+    public function create(Request $request)
     {
         $student = new Student();
-        $student->fullname = $_POST['fullname'] ?? "emty";
-        $student->program = $_POST['program'] ?? "emty";
-        $student->income = $_POST['program'] ?? "emty";
-        $student->gpa = (double)($_POST['gpa'] ?? 0);
+        $student->fullname = $request->fullname ?? "emty";
+        $student->program = $request->program ?? "emty";
+        $student->income = $request->income ?? "emty";
+        $student->gpa = (double)($request->gpa ?? 0);
         $student->save();
         return redirect('/student');
     }
